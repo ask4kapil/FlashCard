@@ -28,13 +28,20 @@ Ext.application({
     ],
 
     views: [
-        'Main'
+        'Main',
+        'ListFlashCards'
     ],
 	
     controllers: [
         'Main'
     ],
 	
+    models: ['Devit.model.CardsModel',
+             'Devit.model.FlashCardModel'],
+             
+    stores: ['Devit.store.CardsStore',
+             'Devit.store.FlashCardStore'],
+    
     icon: {
         '57': 'resources/icons/Icon.png',
         '72': 'resources/icons/Icon~ipad.png',

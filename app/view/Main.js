@@ -6,7 +6,8 @@ Ext.define('Devit.view.Main', {
         'Ext.form.Panel',
 		'Ext.form.FieldSet',
 		'Ext.field.Select',
-		'Ext.ux.field.SliderExtended'
+		'Ext.ux.field.SliderExtended',
+		'Devit.model.FlashCardModel'
     ],
     config: {
         fullscreen: true,
@@ -60,24 +61,11 @@ Ext.define('Devit.view.Main', {
                 docked: 'top',
                 ui: 'light',                    
                 title: {
-                    title: 'Navigation',
-                    centered: false,
+                    title: 'Menu',
+                    centered: true,
                     width: 200,
                     left: 0
                 }
-                
-                /**
-                 *  Here's an example of how to add a different type of
-                 *  component into the toolbar of the list.
-                 */
-                /*
-                items: [{
-                    docked: 'top',
-                    xtype: 'searchfield',
-                    placeHolder: 'search',
-                    width: 180
-                }]
-                */
             }]
             
         },
@@ -106,27 +94,72 @@ Ext.define('Devit.view.Main', {
             // Enable the slide button using the defaults defined above in
             // `slideButtonDefaults`.
             slideButton: true,
+            layout: 'vbox',
+            defaults: {
+
+            },
             items: [{
                 xtype: 'toolbar',
                 title: 'Flash Cards',
                 docked: 'top'
-            },{
+            },
+            {
+            	xtype: 'listflashcards',
+            	flex: 1
+            }
+            /*{
+                docked: 'left',
+                layout: 'vbox',
+                width: '50%',
+                items: [{
+	                    xtype: 'panel',
+	                    html: 'message list',
+	                    flex: 1,
+	                	border: 3,
+	                	margin: '25 25 25 24',
+	                	style: 'background-color:#F00'
+	                },
+	                {
+	                    xtype: 'panel',
+	                    html: 'message preview',
+	                    flex: 1,
+	                	border: 3,
+	                	margin: '25 25 25 24',
+	                	style: 'background-color:#F00'
+	                }
+	            ]
+            },
+            {
                 xtype: 'panel',
-               
-                // Mask this item when the container is opened
-                maskOnOpen: true
-            }]
+                html: 'message list',
+                flex: 1,
+            	border: 3,
+            	margin: '25 25 25 24',
+            	style: 'background-color:#F00'
+            },
+            {
+                xtype: 'panel',
+                html: 'message preview',
+                flex: 1,
+            	border: 3,
+            	margin: '25 25 25 24',
+            	style: 'background-color:#F00'
+            }*/]
         },{
             title: 'Create New Cards',
             group: 'Cards',
             slideButton: true,
-            /**
-             *  Here's an example of how an item can simply execute a
-             *  function, rather than display a new component.
-             */
-            handler: function() {
-                Ext.Msg.alert('Item 2', 'You clicked Item 2.');
-            }
+            items: [{
+                xtype: 'toolbar',
+                title: 'Create New Cards',
+                docked: 'top'
+            },
+            {
+                styleHtmlContent: true,
+                xtype: 'panel',
+                layout: 'card',
+                html: 'Create New Card'
+            }]
         },{
             title: 'Settings',
             group: 'Settings',
@@ -193,6 +226,22 @@ Ext.define('Devit.view.Main', {
                             ]
                         }
                     ]
+            }]
+        },
+        {
+            title: 'About',
+            group: 'Settings',
+            slideButton: true,
+            items: [{
+                xtype: 'toolbar',
+                title: 'About',
+                docked: 'top'
+            },
+            {
+                styleHtmlContent: true,
+                xtype: 'panel',
+                layout: 'card',
+                html: 'Flash Card APP Under development'
             }]
         }
     
