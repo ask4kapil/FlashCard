@@ -1,0 +1,30 @@
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+// Custom code goes here..
+
+// Examples of using the icon mixin:
+// @include icon('user');
+
+.x-slider-field-extended .x-component-outer {
+  padding: 0.5em;
+}
+
+.x-slider-field-extended .x-slider-helper {
+  width: 30%;
+}
+
+.x-slider-field-extended .x-slider  {
+	width: 65%;
+}
+
+.x-slider-field-extended .x-slider-helper .x-slider-helper-input {
+  width: 100%;
+  margin: 0;
+  padding: 0.1em 0.3em;
+  height: 2.2em;
+  border: 1px solid #CCC;
+}
