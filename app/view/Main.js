@@ -83,7 +83,6 @@ Ext.define('Devit.view.Main', {
          *  container.
          */
         defaults: {
-            style: 'background: #fff',
             xtype: 'container'
         },
         
@@ -152,13 +151,81 @@ Ext.define('Devit.view.Main', {
             items: [{
                 xtype: 'toolbar',
                 title: 'Create New Cards',
-                docked: 'top'
+                docked: 'top',
+                items: [
+							{
+							    xtype: 'spacer'
+							},
+							{
+			                	xtype: 'button',
+			                    text: 'Save',
+			                    ui: 'forward',
+			                    align: 'right',
+			                    action: 'save',
+			                    hidden: (Ext.theme.name == "Blackberry") ? true : false
+							}
+						]
             },
             {
-                styleHtmlContent: true,
-                xtype: 'panel',
-                layout: 'card',
-                html: 'Create New Card'
+                xtype: 'formpanel',
+                scrollable: true,
+                maskOnOpen: true,
+                items: [
+                        {
+                            xtype: 'fieldset',
+                            id: 'fieldset1',
+                            title: 'Flash Card Info',
+                            defaults: {
+                                labelWidth: '35%'
+                            },
+                            items: [
+                                    {
+                                        xtype         : 'textfield',
+                                        name          : 'flashcardname',
+                                        label         : 'Flash Card Name',
+                                        placeHolder   : 'Name',
+                                        autoCapitalize: true,
+                                        required      : true,
+                                        clearIcon     : true
+                                    },
+                                    {
+                                        xtype: 'selectfield',
+                                        name : 'cardscount',
+                                        label: 'No. of Cards',
+                                        required      : true,
+                                        options: [
+                                            {
+                                                text : '4',
+                                                value: '4'
+                                            },
+                                            {
+                                                text : '5',
+                                                value: '5'
+                                            },
+                                            {
+                                                text : '6',
+                                                value: '6'
+                                            },
+                                            {
+                                                text : '7',
+                                                value: '7'
+                                            },
+                                            {
+                                                text : '8',
+                                                value: '8'
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        xtype: 'textareafield',
+                                        name : 'description',
+                                        label: 'Card Description',
+                                        required      : true,
+                                        clearIcon     : true
+                                    }
+                            ]
+                        }
+                      ]
             }]
         },{
             title: 'Settings',
@@ -183,7 +250,6 @@ Ext.define('Devit.view.Main', {
                                 {
                                     xtype: 'selectfield',
                                     name : 'theme',
-                                    id: 'theme',
                                     label: 'Theme',
                                     usePicker: true,
                                     options: [

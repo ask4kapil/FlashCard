@@ -5,11 +5,12 @@ Ext.define('Devit.model.FlashCardModel', {
         fields: [
             {name: 'id', },
             {name: 'name', type: 'string'},
+            {name: 'cards', type: 'number'},
             {name: 'description', type: 'string'}
         ],
         proxy: {
             type: 'localstorage',
-            id: 'flashcardmodel'
+            id: 'flashcardstore'
         }
     }
 });

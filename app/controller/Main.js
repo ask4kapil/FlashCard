@@ -10,7 +10,8 @@ Ext.define("Devit.controller.Main", {
     
     config: {
         refs: {
-			selectfield: 				'selectfield'
+			selectfield: 				'selectfield[name=theme]',
+			quality:					'sliderfieldextended[name=quality]'
         },
 
         control: {
@@ -42,6 +43,20 @@ Ext.define("Devit.controller.Main", {
 					 }
 					 else
 						selectbox.selected = false;
+				}
+			},
+			quality: {
+				initialize:function(slider)
+				{
+					var quality = localStorage.getItem("quality");
+					if(quality !== null)
+					{
+						slider.setValue(quality);
+						slider.setHelperValue(quality);
+					}
+				},
+				change: function(slider, newValue, oldValue, eOpts){
+					localStorage.setItem("quality",slider.getValue()[0]);
 				}
 			}
         }

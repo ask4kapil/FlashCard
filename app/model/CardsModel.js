@@ -10,7 +10,7 @@ Ext.define('Devit.model.CardsModel', {
         ],
         proxy: {
             type: 'localstorage',
-            id: 'cardsmodel'
+            id: 'cardsstore'
         }
     }
 });
